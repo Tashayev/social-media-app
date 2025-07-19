@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import {
   HomeIcon,
@@ -8,8 +9,15 @@ import {
   UserIcon,
   EllipsisHorizontalCircleIcon
 } from '@heroicons/react/24/outline';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/redux/store';
 
-export default function SidebarLinks() {
+interface SidebarLinksProps {
+  inPostFeedComponent?: boolean
+}
+
+export default function SidebarLinks({inPostFeedComponent = false}:SidebarLinksProps) {
+  
   return (
     <>
       {sidebarObj.map((link) => (
@@ -28,10 +36,11 @@ interface SidebarProps {
 };
 
 function SidebarLink({ text, Icon }: SidebarProps) {
+  const isTextOpen = useSelector((state: RootState) => state.links.isTextVisible)
   return (
     <li className='flex mb-2 items-center text-xl space-x-3 p-2.5 cursor-pointer hover:text-bee'>
       <Icon className="h-7" />
-      <span className='hidden xl:block'>{text}</span>
+    <span className={isTextOpen ? '' : 'hidden xl:block'}>{text}</span>
     </li>
   );
 };

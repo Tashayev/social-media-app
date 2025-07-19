@@ -1,7 +1,7 @@
 import React from 'react'
 import SidebarLinks from './SidebarLinks';
 import Image from 'next/image';
-import SidebarUserInfo from './SidebarUserInfo';
+import SidebarUserInfo from './UserInfo';
 
 const Sidebar = () => {
   return (
@@ -19,7 +19,7 @@ const Sidebar = () => {
           Bumble
         </button>
 
-        <SidebarUserInfo />
+        
       </div>
     </nav>
   )

@@ -11,7 +11,7 @@ import { signOutUser } from '@/redux/slices/userSlice';
 import { AppDispatch, RootState } from '@/redux/store';
 import { closeLogInModal, closeSignUpModal } from '@/redux/slices/modalSlice';
 
-export default function SidebarUserInfo() {
+export default function UserInfo() {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
@@ -33,8 +33,8 @@ export default function SidebarUserInfo() {
 
   return (
     <>
-      <div className='absolute bottom-3 flex items-center justify-start 
-      space-x-2 rounded-full xl:p-3 xl:pe-6 hover:bg-gray-500 
+      <div className='sticky bottom-5 left-1 sm:left-5 flex items-center justify-start 
+      space-x-2 rounded-full xl:p-3 xl:pe-6 hover:bg-gray-500 p-0
       hover:bg-opacity-10 transition cursor-pointer w-fit xl:w-[240px]'
         onClick={handleClick}
       >

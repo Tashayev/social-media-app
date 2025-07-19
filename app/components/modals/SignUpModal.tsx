@@ -52,6 +52,7 @@ export default function SignUpModal() {
         }
       ));
     })
+    return unsubscribe;
   },[])
 
   async function handleGuestLogIn() {
