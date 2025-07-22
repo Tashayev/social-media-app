@@ -1,17 +1,15 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import PostInput from './PostInput'
-import Post from './Post'
 import { collection, DocumentData, onSnapshot, orderBy, query, QueryDocumentSnapshot } from 'firebase/firestore';
 import { db } from '@/firebase';
 import { useDispatch } from 'react-redux';
 import { closeLoadingScreen } from '@/redux/slices/loadingSlice';
-import SidebarUserInfo from './UserInfo';
 import { Bars3Icon } from '@heroicons/react/24/outline';
 import { Box, Drawer, List } from '@mui/material';
-
-import SidebarLinks from './SidebarLinks';
 import { hideText, showText } from '@/redux/slices/linksSlice';
+import SidebarLinks from '../sidebar/SidebarLinks';
+import PostInput from './PostInput';
+import Post from './Post';
 
 export default function PostFeed() {
   const dispatch = useDispatch();
@@ -19,8 +17,7 @@ export default function PostFeed() {
    const [open, setOpen] = useState(false);
   useEffect(()=>{
     const q = query(collection(db, "posts"), orderBy("timestamp", "desc"));
-    const unsubscribe = onSnapshot(q, (snapshot) => {
-      console.log(snapshot )
+    const unsubscribe = onSnapshot(q, (snapshot) => {      
       const snapshotDocs = snapshot.docs
       
       setPosts(snapshotDocs)
@@ -34,7 +31,7 @@ export default function PostFeed() {
   const DrawerList = (
     <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
       <ul className='p-3'>
-       <SidebarLinks inPostFeedComponent={true}/>       
+       <SidebarLinks />       
       </ul>
       
     </Box>
@@ -72,10 +69,8 @@ export default function PostFeed() {
           dispatch(hideText());
         }}>
           {DrawerList}
-        </Drawer>
-        
-      </div>
-      
+        </Drawer>        
+      </div>      
     </div>
   )
 }

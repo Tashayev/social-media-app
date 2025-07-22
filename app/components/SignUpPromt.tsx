@@ -14,7 +14,7 @@ export default function SignUpPromt() {
     <div className='fixed w-full h-[80px]
      bottom-0 bg-bee flex justify-center 
      items-center md:space-x-5 lg:justify-between
-     lg:px-20 xl:px-40 2xl:px-80
+     lg:px-20 xl:px-40 2xl:px-80 z-50
      '>
       <div className='hidden md:flex flex-col text-white'>
         <span>Don't miss out on buzz</span>

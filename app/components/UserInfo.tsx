@@ -2,7 +2,6 @@
 import * as React from 'react';
 import Image from 'next/image'
 import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
 import { useState } from 'react';
 import { auth } from '@/firebase';
 import { signOut } from 'firebase/auth';
@@ -33,7 +32,7 @@ export default function UserInfo() {
 
   return (
     <>
-      <div className='sticky bottom-5 left-1 sm:left-5 flex items-center justify-start 
+      <div className='fixed bottom-5 left-1 sm:left-5 flex items-center justify-start 
       space-x-2 rounded-full xl:p-3 xl:pe-6 hover:bg-gray-500 p-0
       hover:bg-opacity-10 transition cursor-pointer w-fit xl:w-[240px]'
         onClick={handleClick}

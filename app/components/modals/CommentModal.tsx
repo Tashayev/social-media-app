@@ -4,8 +4,8 @@ import { RootState } from '@/redux/store'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { closeCommentModal } from '@/redux/slices/modalSlice'
-import { PostHeader } from '../Post'
-import PostInput from '../PostInput'
+import { PostHeader } from '../post/Post'
+import PostInput from '../post/PostInput'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 
 export default function CommentModal() {

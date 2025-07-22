@@ -1,7 +1,7 @@
 import React from 'react'
 import SidebarLinks from './SidebarLinks';
 import Image from 'next/image';
-import SidebarUserInfo from './UserInfo';
+import SidebarUserInfo from '../UserInfo';
 
 const Sidebar = () => {
   return (

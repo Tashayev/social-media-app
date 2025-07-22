@@ -11,18 +11,25 @@ import {
 } from '@heroicons/react/24/outline';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/redux/store';
+import Link from 'next/link';
 
-interface SidebarLinksProps {
-  inPostFeedComponent?: boolean
-}
 
-export default function SidebarLinks({inPostFeedComponent = false}:SidebarLinksProps) {
+
+export default function SidebarLinks() {
   
   return (
-    <>
-      {sidebarObj.map((link) => (
-        <SidebarLink key={link.text} Icon={link.iconName} text={link.text} />
-      ))}
+    <>      
+        <Link href='/'>
+          <SidebarLink  Icon={HomeIcon} text='Home' />
+        </Link>
+        <Link href='/explore'>
+          <SidebarLink  Icon={HashtagIcon} text='Explore' />
+        </Link>
+        <SidebarLink  Icon={ BellIcon} text='Notification' />
+        <SidebarLink  Icon={InboxIcon} text='Messages' />
+        <SidebarLink  Icon={BookmarkIcon} text='Bookmarks' />
+        <SidebarLink  Icon={UserIcon} text='Profile' />
+        <SidebarLink  Icon={EllipsisHorizontalCircleIcon} text='More' />     
     </>
   );
 };
@@ -45,12 +52,3 @@ function SidebarLink({ text, Icon }: SidebarProps) {
   );
 };
 
-const sidebarObj = [
-  { iconName: HomeIcon, text: 'Home' },
-  { iconName: HashtagIcon, text: 'Explore' },
-  { iconName: BellIcon, text: 'Notification' },
-  { iconName: InboxIcon, text: 'Messages' },
-  { iconName: BookmarkIcon, text: 'Bookmarks' },
-  { iconName: UserIcon, text: 'Profile' },
-  { iconName: EllipsisHorizontalCircleIcon, text: 'More' },
-];

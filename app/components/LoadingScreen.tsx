@@ -2,18 +2,17 @@
 import { LinearProgress } from '@mui/material'
 import Image from 'next/image'
 import React from 'react'
-import { useSelector } from 'react-redux'
-import { RootState } from '@/redux/store'
+// import { useSelector } from 'react-redux'
+// import { RootState } from '@/redux/store'
 
 
 export default function LoadingScreen() {
-  const loadingScreenOpen = useSelector((state:RootState) =>
-     state.loading.loadingScreenOpen)
+  
   return (
     <div className={`fixed top-0 left-0 button-0
     right-0 bg-white h-screen w-screen
     flex flex-col items-center justify-center transition
-     ${loadingScreenOpen ? 'opacity-100  z-50' : 'opacity-0 -z-50'}`}>
+     'opacity-100  z-50' `}>
       <div className="flex flex-col items-center">
         <Image
           width={120}
